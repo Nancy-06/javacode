@@ -1,5 +1,7 @@
 package List;
 
+import LinkedList.List;
+
 import java.util.Arrays;
 
 public class MyArrayList implements List {
