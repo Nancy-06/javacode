@@ -1,6 +1,5 @@
 package List;
 
-import LinkedList.List;
 
 import java.util.Arrays;
 
@@ -34,6 +33,12 @@ public class MyArrayList implements List {
         return add(size,element);
     }
 
+    /**
+     * 把element插入到index的位置
+     * @param index  结点
+     * @param element  插入的值
+     * @return  true 返回正确  false返回错误
+     */
     @Override
     public boolean add(int index, int element) {
         ensuereCapacity();
@@ -42,13 +47,21 @@ public class MyArrayList implements List {
         }
 
         else{
+            //为index下标，腾出位置来
             System.arraycopy(array,index,array,index+1,size-index);
+            //插入
             array[index]=element;
+            //长度变更
             size++;
         }
         return true;
     }
 
+    /**
+     * 获取到当前结点的值
+     * @param index   结点1
+     * @return   结点的值
+     */
     @Override
     public int get(int index) {
         if(index<0||index>=size){
@@ -60,6 +73,12 @@ public class MyArrayList implements List {
         }
     }
 
+    /**
+     * 将结点为index的值改为val
+     * @param index  结点
+     * @param val  修改为val
+     * @return   index结点之前的值
+     */
     @Override
     public int set(int index, int val) {
         if(index<0||index>=size){
@@ -73,6 +92,11 @@ public class MyArrayList implements List {
         }
     }
 
+    /**
+     * 删除当前结点的值
+     * @param index  结点
+     * @return  要删除的结点的值
+     */
     @Override
     public int remove(int index) {
         if(index<0||index>=size) {
@@ -99,25 +123,7 @@ public class MyArrayList implements List {
 
 
     @Override
-    public Iterator iterator() {
-        return new ArrayIterator(0);
+    public String toString() {
+        return Arrays.toString(Arrays.copyOf(array,size));
     }
-    public class ArrayIterator implements Iterator{
-
-        int cur;
-        public ArrayIterator(int cur){
-            this.cur=cur;
-        }
-        @Override
-        public boolean hasNext() {
-            return cur<size();
-        }
-
-        @Override
-        public int next() {
-            return array[cur++];
-        }
-
-    }
-
 }

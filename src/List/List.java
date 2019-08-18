@@ -18,5 +18,4 @@ public interface List {
 
     boolean isEmpty();
 
-    Iterator iterator();
 }
