@@ -23,6 +23,7 @@ public class CollectionDemo {
         System.out.println(list.size());
         System.out.println(list.isEmpty());
         Object[] array=list.toArray();
+        System.out.println(Arrays.toString(array));
         for(String s:list){
             System.out.println(s);
         }
