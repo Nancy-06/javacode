@@ -99,7 +99,7 @@ public class MyLinkedList implements List {
             return true;
         }
         /**
-         * 相当于尾插，也要判断它的前驱结点，以及当它为空链表时的情况
+         * 相当于尾插，也要判断它 的前驱结点，以及当它为空链表时的情况
          */
         if(index==size){
             last=new Node(element,last,null);
