@@ -3,6 +3,7 @@ public class LinkedList extends AbstractList implements List {
         private int val;
         private Node next=null;
         Node(int val,Node next){
+
             this.val=val;
             this.next=next;
         }
@@ -33,6 +34,7 @@ public class LinkedList extends AbstractList implements List {
 
         @Override
         public boolean hasNext(){
+
             return cur!=null;
         }
 
