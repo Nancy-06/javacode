@@ -101,7 +101,7 @@ public class Test14 {
         }
         return head;
     }
-    
+
     //https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
     //题目：删除链表中的结点
 
