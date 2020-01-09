@@ -1,16 +1,16 @@
-package net网络;
+package net网络.UDP.echo;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketException;
 
 /**
  * @author guoyao
  * @create 2020/1/7
  */
 //服务端
-public class server {
+    //你发什么，我回什么
+public class Server {
     public static void main(String[] args) throws IOException{
         //创建服务器socket,同时还绑定了8888端口，默认绑定的IP是所有IP
         DatagramSocket socket=new DatagramSocket(8888);
@@ -25,6 +25,7 @@ public class server {
             int len=receivePacket.getLength();
             //把字节转化字符
             String message=new String (buffer,0,len,"UTF-8");
+            System.out.println("收到了消息："+message);
             //准备回给对方的消息，回声
             String echMessage=message;
             //把字符转字节
