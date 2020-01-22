@@ -13,6 +13,8 @@ import java.util.Scanner;
  * @author guoyao
  * @create 2020/1/9
  */
+//你发什么，我回什么
+    //客户端
 public class Client {
     public static void main(String[] args) throws IOException {
         String messages="cat\r\ndog\r\nfish\r\n";
