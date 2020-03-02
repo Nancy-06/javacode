@@ -26,7 +26,7 @@ public class Test2 {
         }
         return count;
     }
-    
+
 
     public static void main(String[] args) {
         System.out.println(count(12));
