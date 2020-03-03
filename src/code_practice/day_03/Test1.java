@@ -29,11 +29,11 @@ public class Test1 {
     }
 
     //快排的思想(大的数在前，小的数在后)
-    public int findK(int [] a,int n,int k){
+    public static  int findK(int [] a,int n,int k){
         return find(a,0,n-1,k);
     }
 
-    private int find(int[] a, int low, int high, int k) {
+    private static  int find(int[] a, int low, int high, int k) {
         int part=partatin(a,low,high);
         if(k==part-low+1){
             return a[part];
@@ -46,7 +46,7 @@ public class Test1 {
         }
     }
 
-    private int partatin(int[] a, int low, int high) {
+    private static int partatin(int[] a, int low, int high) {
         int key=a[low];
         while(low<high){
             while(low<high&&a[high]<=key){
@@ -64,6 +64,6 @@ public class Test1 {
 
     public static void main(String[] args) {
         int [] a={3,4,2,1,5,7,4};
-        System.out.println(findKth(a,7,7));
+        System.out.println(findK(a,7,7));
     }
 }
