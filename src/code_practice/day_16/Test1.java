@@ -4,7 +4,7 @@ package code_practice.day_16;
  * @author guoyao
  * @create 2020/5/5
  */
-//1-n整数中1出现的此时
+//1-n整数中1出现的次时
 public class Test1 {
     public int countDigitOne(int n){
 
