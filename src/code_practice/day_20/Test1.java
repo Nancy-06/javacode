@@ -15,6 +15,7 @@ class ListNode {
   }
 public class Test1 {
 
+    // 两数相加2
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         Stack<Integer> stack1 = new Stack<>();

@@ -1,6 +1,7 @@
 package code_practice.day_20;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -37,19 +38,37 @@ public class Test10 {
     // 其他数字都出现了三次。请找出那个只出现一次的数字。
     public int singleNumber2(int[] nums) {
 
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i = 0; i < nums.length; i++){
-            int value = map.getOrDefault(nums[i],0);
-            map.put(nums[i] , value+1);
-        }
-        int result = 0;
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-            if(entry.getValue() == 1){
-                result = entry.getKey();
-                break;
+//        HashMap<Integer,Integer> map = new HashMap<>();
+//        for(int i = 0; i < nums.length; i++){
+//            int value = map.getOrDefault(nums[i],0);
+//            map.put(nums[i] , value+1);
+//        }
+//        int result = 0;
+//        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+//            if(entry.getValue() == 1){
+//                result = entry.getKey();
+//                break;
+//            }
+//        }
+//        return result;
+
+        int ans = 0;
+        //考虑每一位
+        for(int i = 0; i < 32; i++){
+            int count = 0;
+            //考虑到每一个数
+            for(int j = 0; j < nums.length; j++){
+                //当前位是不是为1
+                if((nums[j] >>> i & 1) == 1){
+                    count++;
+                }
+            }
+            //1的个数是否为3的倍数
+            if(count % 3 != 0){
+                ans = ans | 1 << i;
             }
         }
-        return result;
+        return ans;
     }
 
     //给定一个整数数组 nums，其中恰好有两个元素只出现一次，其余所有元素均出现两次。
@@ -57,21 +76,37 @@ public class Test10 {
 
     public int[] singleNumber3(int[] nums) {
 
-        int s = 0;
-        for(int num : nums){
-            s ^= num;
-        }
-        int k = s &(-s);
-        int [] result = new int[2];
-        for(int num : nums){
-            if((num & k) == 0){
-                result[0] ^= num;
+//        int s = 0;
+//        for(int num : nums){
+//            s ^= num;
+//        }
+//        int k = s &(-s);
+//        int [] result = new int[2];
+//        for(int num : nums){
+//            if((num & k) == 0){
+//                result[0] ^= num;
+//            }
+//            else{
+//                result[1] ^= num;
+//            }
+//        }
+//       return result;
+
+        HashSet<Integer> set = new HashSet<>();
+        for(int n : nums){
+            if(set.contains(n)){
+                set.remove(n);
+            }else{
+                set.add(n);
             }
-            else{
-                result[1] ^= num;
-            }
         }
-       return result;
+        int  [] result = new int[2];
+        int i = 0;
+        for(int n : set){
+            result[i] = n;
+            i++;
+        }
+        return result;
     }
 
 }
