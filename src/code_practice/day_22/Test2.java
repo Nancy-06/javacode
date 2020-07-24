@@ -1,8 +1,6 @@
 package code_practice.day_22;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author guoyao
@@ -29,4 +27,18 @@ public class Test2 {
         }
         return max;
     }
+
+    public static int lengthOfLongestSubstring1(String s){
+        int max = 0;
+        Queue<Character> queue = new LinkedList<>();
+        for(char c : s.toCharArray()){
+            while(queue.contains(c)){
+                queue.poll();
+            }
+            queue.add(c);
+            max = Math.max(max, queue.size());
+        }
+        return max;
+    }
+
 }
