@@ -88,7 +88,7 @@ public class Test3 {
                 stack.push(cur);
                 cur = cur.left;
             }
-            TreeNode top = stack.pop();
+            TreeNode top = stack.peek();
             if(top.right == null || top.right == last){
                 stack.pop();
                 System.out.println(top.val);
